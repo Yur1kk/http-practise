@@ -1,7 +1,7 @@
 const listElement = document.querySelector(".posts");
 const postTemplate = document.getElementById("single-post");
 const form = document.querySelector('#new-post form');
-const fetchButton = document.querySelector('available-posts button');
+const fetchButton = document.querySelector('#available-posts button');
 
 
 const sendHttpRequest = (method, url, data) => {
@@ -20,6 +20,7 @@ const sendHttpRequest = (method, url, data) => {
 };
 
 async function fetchPosts() {
+  listElement.innerHTML = '';
   const responseData = await sendHttpRequest(
     "GET",
     "https://jsonplaceholder.typicode.com/posts"
