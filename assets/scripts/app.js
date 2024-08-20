@@ -5,8 +5,8 @@ const fetchButton = document.querySelector("#available-posts button");
 const postList = document.querySelector("ul");
 
 const sendHttpRequest = (method, url, data) => {
-  const promise = new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
+  // const promise = new Promise((resolve, reject) => {
+  /*const xhr = new XMLHttpRequest();
     xhr.open(method, url);
     xhr.responseType = "json";
 
@@ -23,8 +23,16 @@ const sendHttpRequest = (method, url, data) => {
     };
 
     xhr.send(JSON.stringify(data));
+      */
+
+  //  });
+  //  return promise;
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data),
+  }).then((response) => {
+    return response.json();
   });
-  return promise;
 };
 
 async function fetchPosts() {
